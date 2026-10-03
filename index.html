@@ -1,0 +1,765 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="theme-color" content="#0f172a">
+<meta name="description" content="Lipakwanza holds payment until you inspect the parcel at a branch. Protected deals for buyers and sellers in Tanzania.">
+<meta name="google-site-verification" content="4HnF5LXQYkstAlkmUJlD7xlYojOncHDpQyA_VQcL4ZQ" />
+<title>Lipakwanza — Complete the deal with us</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='4' fill='%230B0F19'/%3E%3Ctext x='16' y='23' font-family='Inter,system-ui,sans-serif' font-size='20' font-weight='700' fill='%23ffffff' text-anchor='middle'%3EL%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
+<script src="https://www.google.com/recaptcha/api.js" async defer></script>
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+tailwind.config = {
+  theme: {
+    extend: {
+      fontFamily: { sans: ['Inter','system-ui','-apple-system','BlinkMacSystemFont','Segoe UI','sans-serif'] },
+      colors: {
+        ink: { DEFAULT:'#0B0F19', 800:'#1A2233', 700:'#2B3548', 600:'#3F4A5F', 500:'#5C677D', 400:'#8A94A6', 300:'#B8C0CC', 200:'#DDE2E9', 100:'#EEF1F5', 50:'#F7F8FA' },
+        brand: { DEFAULT:'#0B7A5A', 700:'#0A6B4F', 100:'#E4F4EE', 50:'#F2FAF7' },
+        flag: { DEFAULT:'#C79A2E', 600:'#A87F1D', 100:'#F7EDD4' },
+        danger: { DEFAULT:'#B42318', 100:'#FEE4E2' }
+      },
+      borderRadius: { xs:'2px', sm:'4px', md:'6px', lg:'8px' }
+    }
+  }
+}
+</script>
+<style>
+  html { -webkit-text-size-adjust: 100%; }
+  body { -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
+  .tabular { font-variant-numeric: tabular-nums; font-feature-settings: 'tnum'; }
+  input, select, textarea, button { font: inherit; color: inherit; }
+  input:focus, select:focus, textarea:focus, button:focus-visible, a:focus-visible { outline: 2px solid #0B7A5A; outline-offset: 2px; border-radius: 4px; }
+  input[type=tel]::-webkit-outer-spin-button, input[type=tel]::-webkit-inner-spin-button { -webkit-appearance: none; margin: 0; }
+  .rule { border-color: #EEF1F5; }
+  .hair { border-color: #DDE2E9; }
+  ::selection { background: #E4F4EE; color: #0B0F19; }
+  .sr-only { position:absolute; width:1px; height:1px; padding:0; margin:-1px; overflow:hidden; clip:rect(0,0,0,0); white-space:nowrap; border:0; }
+
+  .btn-primary { display:inline-flex; align-items:center; justify-content:center; background:#0B0F19; color:#fff; font-size:15px; font-weight:600; padding:.9375rem 1.5rem; border-radius:4px; border:1px solid #0B0F19; min-height:50px; cursor:pointer; transition: background-color .12s ease, border-color .12s ease; }
+  .btn-primary:hover { background:#1A2233; border-color:#1A2233; }
+  .btn-primary:active { transform:translateY(1px); }
+  .btn-primary:disabled { opacity:.6; cursor:not-allowed; }
+  .btn-quiet { display:inline-flex; align-items:center; justify-content:center; background:transparent; color:#3F4A5F; font-size:14px; font-weight:500; padding:.5rem .75rem; border-radius:4px; border:1px solid transparent; cursor:pointer; }
+  .btn-quiet:hover { color:#0B0F19; }
+  .btn-w-full { width:100%; }
+  .inp { display:block; width:100%; background:#fff; border:1px solid #DDE2E9; border-radius:4px; padding:.8125rem .9375rem; font-size:15.5px; color:#0B0F19; transition: border-color .1s ease, box-shadow .1s ease; }
+  .inp:focus { border-color:#0B7A5A; box-shadow: 0 0 0 3px rgba(11,122,90,.12); outline:none; }
+  .inp.err { border-color:#B42318; box-shadow: 0 0 0 3px rgba(180,35,24,.10); }
+  .lbl { display:block; font-size:14px; font-weight:600; color:#0B0F19; margin-bottom:.5rem; }
+  .hint { font-size:12.5px; color:#5C677D; line-height:1.55; margin-top:.5rem; }
+  .hint.err { color:#B42318; }
+  .num { font-variant-numeric: tabular-nums; }
+  .field { margin-bottom:1.25rem; }
+
+  .spinner { display:inline-block; width:14px; height:14px; border:2px solid currentColor; border-top-color:transparent; border-radius:50%; animation: spin .6s linear infinite; }
+  @keyframes spin { to { transform: rotate(360deg); } }
+
+  .demo-shell { background:#F7F8FA; border:1px solid #DDE2E9; border-radius:8px; overflow:hidden; }
+  .demo-head { padding: .875rem 1.125rem; border-bottom: 1px solid #DDE2E9; background: #fff; display: flex; align-items: center; justify-content: space-between; }
+  .demo-body { padding: 1.25rem; min-height: 260px; display: flex; flex-direction: column; }
+  .demo-title { font-size: 13px; font-weight: 600; color: #0B0F19; }
+  .demo-sub { font-size: 11.5px; color: #5C677D; margin-top: .125rem; font-variant-numeric: tabular-nums; }
+
+  .demo-amount { font-size: 30px; font-weight: 600; letter-spacing: -.02em; color: #0B0F19; font-variant-numeric: tabular-nums; }
+  .demo-label { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: .12em; color: #5C677D; }
+
+  .demo-coin { display:inline-block; width: 10px; height: 10px; border-radius: 50%; background: #C79A2E; box-shadow: 0 0 0 3px rgba(199,154,46,.22); }
+
+  .demo-row { display:flex; align-items:flex-start; gap:.75rem; padding:.625rem 0; font-size: 13px; }
+  .demo-dot { width: 8px; height: 8px; border-radius: 50%; flex: none; margin-top: .4rem; transition: background-color .3s ease, box-shadow .3s ease; }
+  .demo-dot.pending { background: #DDE2E9; }
+  .demo-dot.active { background: #C79A2E; box-shadow: 0 0 0 3px #F7EDD4; }
+  .demo-dot.done { background: #0B7A5A; box-shadow: 0 0 0 3px #E4F4EE; }
+  .demo-row-title { font-weight: 600; color: #0B0F19; }
+  .demo-row-title.muted { color: #8A94A6; font-weight: 500; }
+  .demo-row-sub { font-size: 12px; color: #5C677D; margin-top: .125rem; line-height: 1.5; }
+
+  .demo-stage { transition: opacity .35s ease, transform .35s ease; }
+  .demo-stage.enter { opacity: 0; transform: translateY(6px); }
+
+  .pill { display:inline-flex; align-items:center; gap:.4rem; font-size: 11.5px; font-weight: 600; padding: .25rem .625rem; border-radius: 999px; }
+  .pill-amber { background:#F7EDD4; color:#A87F1D; }
+  .pill-green { background:#E4F4EE; color:#057A55; }
+
+  /* Honeypot — invisible to humans, still in the DOM so bots
+     fill it in. Screen readers ignore it via aria-hidden and
+     tabindex="-1" keeps it out of the tab order. */
+  .hp-field { position:absolute !important; left:-9999px !important; top:auto !important; width:1px !important; height:1px !important; overflow:hidden !important; }
+
+  /* reCAPTCHA container — sized so the widget doesn't jump the
+     layout when it loads. 304px wide is the standard v2 size. */
+  .g-recaptcha-wrap { min-height: 78px; }
+  .g-recaptcha-wrap.err .g-recaptcha { outline: 2px solid #B42318; outline-offset: 2px; border-radius: 4px; }
+  .g-recaptcha-loading { font-size: 12px; color: #8A94A6; }
+
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after { animation-duration: .01ms !important; transition-duration: .01ms !important; }
+  }
+</style>
+</head>
+<body class="bg-white text-ink font-sans text-[16px] leading-[1.55] antialiased">
+
+<header class="border-b hair">
+  <div class="max-w-[560px] mx-auto px-5 h-14 flex items-center justify-between">
+    <div class="flex items-center gap-2">
+      <span class="w-6 h-6 bg-ink text-white grid place-items-center rounded-xs text-[12px] font-bold" aria-hidden="true">L</span>
+      <span class="font-semibold text-[15px] tracking-[-0.01em] text-ink">Lipakwanza</span>
+    </div>
+    <span class="text-[13px] text-ink-400">Coming soon</span>
+  </div>
+</header>
+
+<main class="max-w-[560px] mx-auto px-5">
+
+  <!-- HERO -->
+  <section class="pt-12 sm:pt-16 pb-10">
+    <h1 class="text-[34px] sm:text-[42px] font-semibold tracking-[-0.03em] leading-[1.08] text-ink mb-6">
+      Complete the deal<br>with us.
+    </h1>
+
+    <div class="space-y-4 text-[16px] text-ink-600 leading-[1.65] mb-10">
+      <p>You found an item online. You want to buy it. But the seller is in another region, so you hesitate. You fear of being scammed.</p>
+      <p>Or you are the seller, and the buyer wants you to send the item first.</p>
+      <p>So no deal is made. Nobody trusts easily when you are far apart.</p>
+      <p class="text-ink font-semibold">With us, forget about being scammed again.</p>
+    </div>
+  </section>
+
+  <!-- LIVE DEMO -->
+  <section class="pb-10" aria-label="How Lipakwanza works">
+    <div class="demo-shell" id="demo">
+      <div class="demo-head">
+        <div>
+          <p class="demo-title">Live deal · LP-5012</p>
+          <p class="demo-sub">iPhone 11, 64GB · Dar es Salaam → Arusha</p>
+        </div>
+        <span id="demoBadge" class="pill pill-amber">
+          <span class="demo-coin" aria-hidden="true" style="width:6px;height:6px"></span>
+          <span id="demoBadgeText">Buyer paying</span>
+        </span>
+      </div>
+
+      <div class="demo-body">
+        <div id="demoStage" class="demo-stage flex-1 flex flex-col"></div>
+
+        <div class="border-t hair pt-4 mt-4 flex items-center justify-between">
+          <div class="flex items-center gap-1.5" id="demoDots" aria-hidden="true"></div>
+          <button class="btn-quiet text-[12.5px]" id="demoReplay" data-action="replay" type="button">
+            Play again
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <p class="text-[13px] text-ink-400 leading-[1.6] mt-4 text-center" id="demoCaption">
+      Watch the money move.
+    </p>
+  </section>
+
+  <!-- FORM -->
+  <section class="pb-12 pt-4" aria-labelledby="joinHeading">
+    <h2 id="joinHeading" class="text-[22px] sm:text-[26px] font-semibold tracking-[-0.02em] leading-[1.2] text-ink mb-2">
+      Get told when we open in your city.
+    </h2>
+    <p class="text-[14.5px] text-ink-500 leading-[1.6] mb-7">
+      Three questions. That's all.
+    </p>
+
+    <div id="joinForm">
+      <div class="field">
+        <label class="lbl" for="fName">Your name</label>
+        <input id="fName" class="inp" type="text" autocomplete="name" maxlength="60" placeholder="e.g. Juma Mkasi">
+        <p class="hint" id="fNameHint" hidden></p>
+      </div>
+
+      <div class="field">
+        <label class="lbl" for="fPhone">Phone number (WhatsApp)</label>
+        <div class="flex border hair rounded-sm overflow-hidden bg-white focus-within:border-brand" id="fPhoneWrap">
+          <span class="px-3 py-3 text-[15px] font-medium text-ink-500 bg-ink-50 border-r rule select-none tabular">+255</span>
+          <input id="fPhone" type="tel" inputmode="numeric" autocomplete="tel-national" maxlength="9" placeholder="712345678" class="flex-1 px-3 py-3 text-[15.5px] outline-none bg-transparent tabular">
+        </div>
+        <p class="hint" id="fPhoneHint">Nine digits. Without the +255.</p>
+      </div>
+
+      <div class="field">
+        <label class="lbl" for="fCity">Your city</label>
+        <select id="fCity" class="inp">
+          <option value="">Choose one</option>
+          <option>Dar es Salaam</option>
+          <option>Arusha</option>
+          <option>Mbeya</option>
+          <option>Mwanza</option>
+          <option>Dodoma</option>
+          <option value="__other">Somewhere else</option>
+        </select>
+        <input id="fCityOther" class="inp mt-2 hidden" type="text" maxlength="60" placeholder="Type your city or town" autocomplete="off">
+        <p class="hint" id="fCityHint" hidden></p>
+      </div>
+
+      <!-- Honeypot. Bots fill this in; humans never see it. If it
+           has a value on submit, we silently discard the entry. -->
+      <div class="hp-field" aria-hidden="true">
+        <label for="fWebsite">Website</label>
+        <input id="fWebsite" type="text" name="website" tabindex="-1" autocomplete="off">
+      </div>
+
+      <!-- reCAPTCHA v2 checkbox -->
+      <div class="field">
+        <div class="g-recaptcha-wrap" id="recaptchaWrap">
+          <div class="g-recaptcha"
+               data-sitekey="6Lc-CtstAAAAADhrx0r8yZ6IVrECnmAjB09o3H88"
+               data-callback="onRecaptchaSuccess"
+               data-expired-callback="onRecaptchaExpired"
+               data-error-callback="onRecaptchaError"></div>
+          <p class="hint g-recaptcha-loading" id="recaptchaLoading">Loading verification…</p>
+        </div>
+        <p class="hint" id="recaptchaHint" hidden></p>
+      </div>
+
+      <button type="button" id="submitBtn" class="btn-primary btn-w-full" data-action="join" disabled>
+        Join the list
+      </button>
+    </div>
+
+    <p class="text-[12.5px] text-ink-400 leading-[1.65] mt-6">
+      We'll send one WhatsApp message when Lipakwanza opens in your city. Nothing else. Your number isn't shared with anyone.
+    </p>
+  </section>
+
+</main>
+
+<!-- FOOTER -->
+<footer class="mt-16 bg-ink text-white">
+  <div class="max-w-[560px] mx-auto px-5 py-12">
+    <div class="flex items-center gap-2 mb-4">
+      <span class="w-6 h-6 bg-white text-ink grid place-items-center rounded-xs text-[12px] font-bold" aria-hidden="true">L</span>
+      <span class="font-semibold text-[15px] text-white">Lipakwanza</span>
+    </div>
+    <p class="text-[13px] text-white/65 leading-[1.7] max-w-[400px] mb-8">
+      Holds the money until the buyer has seen the item. Moves the physical parcel through our own branches. Buyer inspects, then money moves.
+    </p>
+    <div class="border-t border-white/10 pt-6 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
+      <a href="mailto:hello@lipakwanza.co.tz" class="text-[13px] text-white/75 hover:text-white transition-colors">hello@lipakwanza.co.tz</a>
+      <p class="text-2xs text-white/40">© 2026 Lipakwanza · Tanzania</p>
+    </div>
+  </div>
+</footer>
+
+<div id="toast" class="fixed bottom-6 left-1/2 -translate-x-1/2 z-[60] bg-ink text-white text-[13.5px] font-medium px-4 py-3 rounded-md shadow-lg translate-y-24 opacity-0 transition-all duration-200 pointer-events-none max-w-[calc(100vw-3rem)] text-center" role="status" aria-live="polite" aria-atomic="true"></div>
+
+<div id="modalRoot" class="fixed inset-0 z-[55] hidden" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+  <div class="absolute inset-0 bg-ink/50" data-action="close-modal"></div>
+  <div class="absolute inset-0 flex items-start sm:items-center justify-center p-4 sm:p-6 overflow-y-auto">
+    <div id="modalCard" class="relative bg-white rounded-lg shadow-xl w-full max-w-[440px] my-auto"></div>
+  </div>
+</div>
+
+<script>
+"use strict";
+
+/* ═══════════════════════════════════════════════════════════════
+   LIPAKWANZA — waitlist
+
+   One page. Two jobs: show the visitor what the product does in
+   about fifteen seconds, then let them join in three fields.
+
+   There is no reward. The page rests on one reason to join: we
+   will message when we open in the visitor's city.
+
+   WHY THE BUTTON IS type="button", NOT type="submit"
+     A <form> with a submit handler can silently reload the page
+     if the handler fails to attach. This page has no <form>
+     element. The button calls joinList() directly.
+
+   SPAM PROTECTION — two layers
+     1. Honeypot field (#fWebsite). Invisible to humans. If it has
+        a value on submit, the entry is silently discarded.
+     2. reCAPTCHA v2 checkbox. The Join button stays disabled
+        until the widget reports a successful solve. Client-side
+        only — no server verification. See the note below.
+
+   NOTE ON reCAPTCHA VERIFICATION
+     Google's own console warns that client-side-only reCAPTCHA
+     verifies fewer than 50% of solves, because the token is
+     never confirmed against the siteverify API. On this static
+     waitlist there is no server to do that check. The widget
+     still stops naive bots that do not execute JavaScript. When
+     a backend exists, add a Netlify Function that takes the
+     token and calls Google's siteverify endpoint, and this
+     warning goes away.
+   ═══════════════════════════════════════════════════════════════ */
+
+var LS_JOINED = "lipakwanza_waitlist_joined_v1";
+
+/* ── HELPERS ───────────────────────────────────────────────────── */
+
+var nf = new Intl.NumberFormat("en-GB");
+function fmt(n) { return nf.format(Math.round(Number(n) || 0)); }
+function money(n) { return "TSh " + fmt(n); }
+function esc(s) {
+  return String(s === undefined || s === null ? "" : s).replace(/[&<>"']/g, function (c) {
+    return { "&":"&amp;", "<":"&lt;", ">":"&gt;", '"':"&quot;", "'":"&#39;" }[c];
+  });
+}
+
+var toastTimer = null;
+function toast(msg) {
+  var t = document.getElementById("toast");
+  if (!t) return;
+  t.textContent = msg;
+  t.classList.remove("translate-y-24", "opacity-0");
+  t.classList.add("translate-y-0", "opacity-100");
+  clearTimeout(toastTimer);
+  toastTimer = setTimeout(function () {
+    t.classList.add("translate-y-24", "opacity-0");
+    t.classList.remove("translate-y-0", "opacity-100");
+  }, 2800);
+}
+
+function storeGet(k) { try { return localStorage.getItem(k); } catch (e) { return null; } }
+function storeSet(k, v) { try { localStorage.setItem(k, v); } catch (e) {} }
+
+function openModal(html) {
+  var card = document.getElementById("modalCard");
+  var root = document.getElementById("modalRoot");
+  if (!card || !root) return;
+  card.innerHTML = html;
+  root.classList.remove("hidden");
+  document.body.classList.add("overflow-hidden");
+}
+function closeModal() {
+  var root = document.getElementById("modalRoot");
+  var card = document.getElementById("modalCard");
+  if (root) root.classList.add("hidden");
+  if (card) card.innerHTML = "";
+  document.body.classList.remove("overflow-hidden");
+}
+
+/* ── FIELD ERRORS ────────────────────────────────────────────── */
+
+function setFieldError(inputId, hintId, message) {
+  var input = document.getElementById(inputId);
+  var hint = document.getElementById(hintId);
+  if (input) input.classList.add("err");
+  if (hint) {
+    hint.textContent = message;
+    hint.className = "hint err";
+    hint.hidden = false;
+  }
+}
+function clearFieldError(inputId, hintId, defaultMessage) {
+  var input = document.getElementById(inputId);
+  var hint = document.getElementById(hintId);
+  if (input) input.classList.remove("err");
+  if (hint) {
+    if (defaultMessage) {
+      hint.textContent = defaultMessage;
+      hint.className = "hint";
+      hint.hidden = false;
+    } else {
+      hint.textContent = "";
+      hint.className = "hint";
+      hint.hidden = true;
+    }
+  }
+}
+
+/* ── RECAPTCHA STATE ───────────────────────────────────────────
+   recaptchaSolved is set by the widget callbacks. The Join
+   button stays disabled until it is true. If the widget expires,
+   the flag drops back to false and the button disables again. */
+
+var recaptchaSolved = false;
+
+function updateSubmitState() {
+  var btn = document.getElementById("submitBtn");
+  if (!btn) return;
+  btn.disabled = !recaptchaSolved;
+}
+
+window.onRecaptchaSuccess = function () {
+  recaptchaSolved = true;
+  var wrap = document.getElementById("recaptchaWrap");
+  var hint = document.getElementById("recaptchaHint");
+  var loading = document.getElementById("recaptchaLoading");
+  if (wrap) wrap.classList.remove("err");
+  if (loading) loading.hidden = true;
+  if (hint) {
+    hint.textContent = "";
+    hint.className = "hint";
+    hint.hidden = true;
+  }
+  updateSubmitState();
+};
+
+window.onRecaptchaExpired = function () {
+  recaptchaSolved = false;
+  var hint = document.getElementById("recaptchaHint");
+  if (hint) {
+    hint.textContent = "Verification expired. Please tick the box again.";
+    hint.className = "hint err";
+    hint.hidden = false;
+  }
+  updateSubmitState();
+};
+
+window.onRecaptchaError = function () {
+  recaptchaSolved = false;
+  var hint = document.getElementById("recaptchaHint");
+  if (hint) {
+    hint.textContent = "Verification could not load. Reload the page and try again.";
+    hint.className = "hint err";
+    hint.hidden = false;
+  }
+  updateSubmitState();
+};
+
+/* If the widget script fails to load at all, replace the loading
+   message with something the visitor can act on. */
+setTimeout(function () {
+  if (typeof grecaptcha === "undefined") {
+    var loading = document.getElementById("recaptchaLoading");
+    var hint = document.getElementById("recaptchaHint");
+    if (loading) loading.hidden = true;
+    if (hint && !recaptchaSolved) {
+      hint.textContent = "Verification could not load. Reload the page and try again.";
+      hint.className = "hint err";
+      hint.hidden = false;
+    }
+  }
+}, 8000);
+
+/* ── LIVE DEMO ─────────────────────────────────────────────────
+   Four stages, three seconds each, one caption line. Loops until
+   the visitor taps Replay. */
+
+var DEMO_STAGES = [
+  {
+    badge: "Buyer paying",
+    tone: "pill-amber",
+    caption: "The buyer sends the money.",
+    body:
+      '<div class="flex-1 flex flex-col justify-center">' +
+        '<p class="demo-label mb-2">Buyer sends</p>' +
+        '<p class="demo-amount">' + money(460000) + '</p>' +
+        '<p class="text-[12.5px] text-ink-500 mt-3 leading-[1.55]">Item TSh 450,000 + delivery TSh 10,000. The buyer taps send.</p>' +
+      '</div>'
+  },
+  {
+    badge: "Held in escrow",
+    tone: "pill-amber",
+    caption: "The seller can see it. The seller can't touch it.",
+    body:
+      '<div class="flex-1 flex flex-col justify-center">' +
+        '<p class="demo-label mb-2">Held by Lipakwanza</p>' +
+        '<p class="demo-amount">' + money(460000) + '</p>' +
+        '<p class="text-[12.5px] text-ink-500 mt-3 leading-[1.55]">The money is not with the seller. It is not with the buyer. It sits with us.</p>' +
+      '</div>'
+  },
+  {
+    badge: "In transit",
+    tone: "pill-amber",
+    caption: "Two branches confirm. Not one.",
+    body:
+      '<div class="flex-1">' +
+        '<p class="demo-label mb-3">Two confirmations</p>' +
+        '<div class="demo-row">' +
+          '<span class="demo-dot done"></span>' +
+          '<div>' +
+            '<p class="demo-row-title">Origin branch has the parcel</p>' +
+            '<p class="demo-row-sub">The seller showed a one-time code at the Dar es Salaam counter.</p>' +
+          '</div>' +
+        '</div>' +
+        '<div class="demo-row">' +
+          '<span class="demo-dot active"></span>' +
+          '<div>' +
+            '<p class="demo-row-title">On the way to Arusha</p>' +
+            '<p class="demo-row-sub">Carried between branches on our side.</p>' +
+          '</div>' +
+        '</div>' +
+        '<div class="demo-row">' +
+          '<span class="demo-dot pending"></span>' +
+          '<div>' +
+            '<p class="demo-row-title muted">Destination branch confirms arrival</p>' +
+            '<p class="demo-row-sub">Only then does the buyer unlock release or reject.</p>' +
+          '</div>' +
+        '</div>' +
+      '</div>'
+  },
+  {
+    badge: "Released",
+    tone: "pill-green",
+    caption: "The buyer saw it. Then the money moved.",
+    body:
+      '<div class="flex-1 flex flex-col justify-center">' +
+        '<p class="demo-label mb-2">Paid to the seller</p>' +
+        '<p class="demo-amount">' + money(450000) + '</p>' +
+        '<p class="text-[12.5px] text-ink-500 mt-3 leading-[1.55]">The buyer inspected the parcel at the Arusha branch and tapped release. The seller never had to trust the buyer. The buyer never had to trust the seller.</p>' +
+      '</div>'
+  }
+];
+
+var demoIndex = 0;
+var demoTimer = null;
+
+function renderDemo() {
+  var stage = DEMO_STAGES[demoIndex];
+  var badge = document.getElementById("demoBadge");
+  var badgeText = document.getElementById("demoBadgeText");
+  var stageEl = document.getElementById("demoStage");
+  var caption = document.getElementById("demoCaption");
+  var dots = document.getElementById("demoDots");
+
+  if (badge) badge.className = "pill " + stage.tone;
+  if (badgeText) badgeText.textContent = stage.badge;
+  if (caption) caption.textContent = stage.caption;
+
+  if (dots) {
+    var html = "";
+    for (var i = 0; i < DEMO_STAGES.length; i++) {
+      var on = i === demoIndex;
+      html += '<span style="width:6px;height:6px;border-radius:50%;background:' + (on ? "#0B0F19" : "#DDE2E9") + ';display:inline-block"></span>';
+    }
+    dots.innerHTML = html;
+  }
+
+  if (stageEl) {
+    stageEl.classList.add("enter");
+    setTimeout(function () {
+      stageEl.innerHTML = stage.body;
+      stageEl.classList.remove("enter");
+    }, 180);
+  }
+}
+
+function startDemo() {
+  renderDemo();
+  stopDemo();
+  demoTimer = setInterval(function () {
+    demoIndex = demoIndex + 1;
+    if (demoIndex >= DEMO_STAGES.length) {
+      demoIndex = 0;
+    }
+    renderDemo();
+  }, 2800);
+}
+function stopDemo() {
+  if (demoTimer) { clearInterval(demoTimer); demoTimer = null; }
+}
+function replayDemo() {
+  stopDemo();
+  demoIndex = 0;
+  renderDemo();
+  startDemo();
+}
+
+/* ── JOIN ────────────────────────────────────────────────────── */
+
+function cityValue() {
+  var sel = document.getElementById("fCity");
+  var other = document.getElementById("fCityOther");
+  if (!sel) return "";
+  if (sel.value === "__other") {
+    return (other && other.value ? other.value : "").trim();
+  }
+  return sel.value;
+}
+
+function joinList() {
+  var nameEl = document.getElementById("fName");
+  var phoneEl = document.getElementById("fPhone");
+  var citySel = document.getElementById("fCity");
+  var cityOther = document.getElementById("fCityOther");
+  var honey = document.getElementById("fWebsite");
+  var btn = document.getElementById("submitBtn");
+
+  /* Honeypot. If a bot filled this field, silently do nothing —
+     no error, no confirmation, no toast. The bot thinks it
+     succeeded and never retries. A human never sees this field. */
+  if (honey && honey.value) {
+    return;
+  }
+
+  var name = (nameEl && nameEl.value ? nameEl.value : "").trim();
+  var local = (phoneEl && phoneEl.value ? phoneEl.value : "").trim().replace(/^0/, "");
+  var city = cityValue();
+
+  var ok = true;
+
+  if (!name) {
+    setFieldError("fName", "fNameHint", "Enter your name.");
+    ok = false;
+  } else {
+    clearFieldError("fName", "fNameHint", null);
+  }
+
+  if (!local) {
+    setFieldError("fPhone", "fPhoneHint", "Enter your phone number.");
+    ok = false;
+  } else if (!/^\d{9}$/.test(local)) {
+    setFieldError("fPhone", "fPhoneHint", "Phone number should be 9 digits, without +255.");
+    ok = false;
+  } else {
+    clearFieldError("fPhone", "fPhoneHint", "Nine digits. Without the +255.");
+  }
+
+  if (!citySel || !citySel.value) {
+    setFieldError("fCity", "fCityHint", "Choose your city.");
+    ok = false;
+  } else if (citySel.value === "__other" && !city) {
+    setFieldError("fCity", "fCityHint", "Type your city or town.");
+    ok = false;
+  } else {
+    clearFieldError("fCity", "fCityHint", null);
+  }
+
+  if (!recaptchaSolved) {
+    var wrap = document.getElementById("recaptchaWrap");
+    var hint = document.getElementById("recaptchaHint");
+    if (wrap) wrap.classList.add("err");
+    if (hint) {
+      hint.textContent = "Please confirm you're not a robot.";
+      hint.className = "hint err";
+      hint.hidden = false;
+    }
+    ok = false;
+  }
+
+  if (!ok) {
+    var firstErr = document.querySelector(".inp.err, .g-recaptcha-wrap.err");
+    if (firstErr) firstErr.scrollIntoView({ behavior: "smooth", block: "center" });
+    var firstInput = document.querySelector(".inp.err");
+    if (firstInput && firstInput.focus) setTimeout(function () { firstInput.focus(); }, 300);
+    return;
+  }
+
+  if (btn) {
+    btn.disabled = true;
+    btn.innerHTML = '<span class="spinner" aria-hidden="true"></span>Joining…';
+  }
+
+  setTimeout(function () {
+    var entry = {
+      name: name,
+      phone: "+255" + local,
+      city: city,
+      joinedAt: Date.now()
+    };
+    storeSet(LS_JOINED, JSON.stringify(entry));
+    if (btn) {
+      btn.disabled = false;
+      btn.textContent = "Join the list";
+    }
+    showConfirmation(entry);
+  }, 500);
+}
+
+function showConfirmation(entry) {
+  var first = entry.name.split(" ")[0];
+  openModal(
+    '<div class="p-6 text-center">' +
+      '<div class="w-12 h-12 mx-auto rounded-full bg-brand-100 grid place-items-center mb-5">' +
+        '<svg width="22" height="22" viewBox="0 0 22 22" fill="none" aria-hidden="true"><path d="M5 11.5l4 4 8-8" stroke="#0A6B4F" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round"/></svg>' +
+      '</div>' +
+      '<p class="text-[12px] font-semibold uppercase tracking-[0.14em] text-brand-700 mb-3">You\'re on the list</p>' +
+      '<h2 class="text-[22px] font-semibold tracking-[-0.02em] text-ink mb-3">' +
+        'Thanks, ' + esc(first) + '.' +
+      '</h2>' +
+      '<p class="text-[14.5px] text-ink-500 leading-[1.65] mb-7">' +
+        'We have you down for <strong class="text-ink font-semibold">' + esc(entry.city) + '</strong>. We\'ll send one WhatsApp message to ' + esc(entry.phone) + ' when we open there. Nothing else.' +
+      '</p>' +
+      '<button type="button" class="btn-primary btn-w-full" data-action="close-modal">Done</button>' +
+    '</div>'
+  );
+}
+
+/* ── EVENT DELEGATION ──────────────────────────────────────────── */
+
+document.addEventListener("click", function (e) {
+  var el = e.target.closest("[data-action]");
+  if (!el) return;
+  var a = el.dataset.action;
+
+  if (a === "close-modal") { closeModal(); return; }
+  if (a === "replay") { replayDemo(); return; }
+  if (a === "join") { joinList(); return; }
+});
+
+document.addEventListener("change", function (e) {
+  var el = e.target;
+  if (!el) return;
+  if (el.id === "fCity") {
+    var other = document.getElementById("fCityOther");
+    if (!other) return;
+    if (el.value === "__other") {
+      other.classList.remove("hidden");
+      clearFieldError("fCity", "fCityHint", null);
+    } else {
+      other.classList.add("hidden");
+      other.value = "";
+      clearFieldError("fCity", "fCityHint", null);
+    }
+  }
+});
+
+document.addEventListener("input", function (e) {
+  var el = e.target;
+  if (!el) return;
+  if (el.id === "fName") clearFieldError("fName", "fNameHint", null);
+  if (el.id === "fPhone") clearFieldError("fPhone", "fPhoneHint", "Nine digits. Without the +255.");
+  if (el.id === "fCityOther") clearFieldError("fCity", "fCityHint", null);
+});
+
+document.addEventListener("keydown", function (e) {
+  if (e.key === "Escape") {
+    var root = document.getElementById("modalRoot");
+    if (root && !root.classList.contains("hidden")) closeModal();
+  }
+  if (e.key === "Enter" && e.target && (e.target.id === "fName" || e.target.id === "fPhone" || e.target.id === "fCityOther")) {
+    e.preventDefault();
+    joinList();
+  }
+});
+
+/* ── BOOT ──────────────────────────────────────────────────────── */
+
+function boot() {
+  var joined = storeGet(LS_JOINED);
+  if (joined) {
+    try {
+      var entry = JSON.parse(joined);
+      if (entry && entry.name && entry.city) {
+        var form = document.getElementById("joinForm");
+        var heading = document.getElementById("joinHeading");
+        if (heading) heading.textContent = "You're already on the list.";
+        if (form) form.innerHTML =
+          '<div class="border hair rounded-md p-5 bg-ink-50/50">' +
+            '<p class="text-[14px] text-ink leading-[1.6] mb-2">' +
+              'Hi ' + esc(entry.name.split(" ")[0]) + '. We have you down for <strong class="font-semibold">' + esc(entry.city) + '</strong>.' +
+            '</p>' +
+            '<p class="text-[13px] text-ink-500 leading-[1.6]">' +
+              'One WhatsApp message when we open there. Nothing else.' +
+            '</p>' +
+          '</div>';
+      }
+    } catch (e) {}
+  }
+
+  updateSubmitState();
+  startDemo();
+}
+
+if (document.readyState === "loading") {
+  document.addEventListener("DOMContentLoaded", boot);
+} else {
+  boot();
+}
+</script>
+</body>
+</html>
